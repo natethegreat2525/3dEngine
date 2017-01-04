@@ -44,7 +44,7 @@ public class Vector3i {
 		this.z = z;
 	}
 	
-	public Vector3i add(Vector3i a, Vector3i b) {
+	public static Vector3i add(Vector3i a, Vector3i b) {
 		return new Vector3i(a.x + b.x, a.y + b.y, a.z + b.z);
 	}
 	
