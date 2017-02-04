@@ -24,4 +24,8 @@ public class Vector3f {
 		return new Vector3f(x * i, y * i, z * i);
 	}
 	
+	public String toString() {
+		return String.format("(%.2f, %.2f, %.2f)", x, y, z);
+	}
+	
 }

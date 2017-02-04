@@ -305,4 +305,15 @@ public class Matrix4f {
 		}
 		return str;
 	}
+
+	public static Matrix4f scale(Vector3f scale) {
+			Matrix4f result = new Matrix4f();
+			
+			result.elements[0 + 0*4] = scale.x;
+			result.elements[1 + 1*4] = scale.y;
+			result.elements[2 + 2*4] = scale.z;
+			result.elements[3 + 3*4] = 1;
+			
+			return result;
+	}
 }
