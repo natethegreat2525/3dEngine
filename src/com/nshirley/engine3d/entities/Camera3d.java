@@ -35,6 +35,10 @@ public class Camera3d extends Camera {
 		rotVec = vec.clone();
 	}
 	
+	public Vector3f getLookDir() {
+		return new Vector3f(-vwMatrix.elements[2], -vwMatrix.elements[6], -vwMatrix.elements[10]);
+	}
+	
 	public Vector3f getPosition() { return posVec; }
 	public Vector3f getRotation() { return rotVec; }
 }

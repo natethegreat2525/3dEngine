@@ -8,7 +8,6 @@ import static org.lwjgl.opengl.GL30.*;
 import com.nshirley.engine3d.utils.BufferUtils;
 
 public class VertexArray {
-
 	private int count;
 	private Attribute[] attributes;
 	private int ibo;
@@ -111,8 +110,10 @@ public class VertexArray {
 	}
 	
 	public void free() {
+//		new Exception().printStackTrace(System.out);
 		if (freed == true) {
-			System.out.println("Double free!");
+			System.out.println("Double free attempt!");
+			return;
 		}
 		freed = true;
 		glBindVertexArray(buffers[buffers.length - 1]);

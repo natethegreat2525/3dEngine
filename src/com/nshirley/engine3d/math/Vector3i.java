@@ -51,5 +51,9 @@ public class Vector3i {
 	public String toString() {
 		return x + " " + y + " " + z;
 	}
+
+	public Vector3i mult(int val) {
+		return new Vector3i(x*val, y*val, z*val);
+	}
 	
 }

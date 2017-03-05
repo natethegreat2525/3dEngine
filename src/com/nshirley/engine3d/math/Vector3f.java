@@ -27,5 +27,15 @@ public class Vector3f {
 	public String toString() {
 		return String.format("(%.2f, %.2f, %.2f)", x, y, z);
 	}
+
+	public Vector3f normalize() {
+		float mag = (float) Math.sqrt(x * x + y * y + z * z);
+		
+		return new Vector3f(x / mag, y / mag, z / mag);
+	}
+
+	public float dot(Vector3f v) {
+		return v.x*x + v.y*y + v.z*z;
+	}
 	
 }
