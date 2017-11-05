@@ -24,7 +24,7 @@ public class VertexArrayBuilder {
 	public void concatenate(VertexArrayBuilder vab) {
 		int startIdx = verts.size();
 		verts.addAll(vab.verts);
-		for (Triangle t : tris) {
+		for (Triangle t : vab.tris) {
 			tris.add(new Triangle(t.a + startIdx, t.b + startIdx, t.c + startIdx));
 		}
 	}

@@ -1,5 +1,6 @@
 package com.nshirley.engine3d.graphics;
 
+import java.io.InputStream;
 import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,10 @@ public class Shader {
 
 	public Shader(String vertex, String fragment) {
 		ID = ShaderUtils.load(vertex, fragment);
+	}
+	
+	public Shader(InputStream vert, InputStream frag) {
+		ID = ShaderUtils.load(vert, frag);
 	}
 		
 	public int getUniform(String name) {
@@ -77,6 +82,11 @@ public class Shader {
 	public void setUniform3f(String name, Vector3f vec) {
 		if (!enabled) enable();
 		glUniform3f(getUniform(name), vec.x, vec.y, vec.z);
+	}
+	
+	public void setUniform4f(String name, float x, float y, float z, float w) {
+		if (!enabled) enable();
+		glUniform4f(getUniform(name), x, y, z, w);
 	}
 	
 	public void setUniformMat4f(String name, Matrix4f matrix) {

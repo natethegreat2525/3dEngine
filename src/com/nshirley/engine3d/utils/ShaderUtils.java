@@ -3,6 +3,9 @@ package com.nshirley.engine3d.utils;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
 
+import java.io.InputStream;
+import java.util.Scanner;
+
 public class ShaderUtils {
 
 	private ShaderUtils() {}
@@ -10,6 +13,20 @@ public class ShaderUtils {
 	public static int load(String vertPath, String fragPath)  {
 		String vert = FileUtils.loadAsString(vertPath);
 		String frag = FileUtils.loadAsString(fragPath);
+		
+		return create(vert, frag);
+	}
+	
+	public static int load(InputStream vertIS, InputStream fragIS)  {
+		Scanner sv = new Scanner(vertIS);
+		sv.useDelimiter("\\A");
+		String vert = sv.next();
+		sv.close();
+		
+		Scanner sf = new Scanner(fragIS);
+		sf.useDelimiter("\\A");
+		String frag = sf.next();
+		sf.close();
 		
 		return create(vert, frag);
 	}

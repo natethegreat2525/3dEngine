@@ -1,9 +1,5 @@
 package com.nshirley.engine3d;
 
-import static org.lwjgl.opengl.GL11.GL_BLEND;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
-import static org.lwjgl.opengl.GL11.GL_NO_ERROR;
-import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.*;
 
@@ -36,7 +32,11 @@ public class N3D {
 	}
 	
 	private static void loadShaders() {
-		Shader.StandardShader = new Shader("shaders/standard.vert", "shaders/standard.frag");
+		//Shader.StandardShader = new Shader("shaders/standard.vert", "shaders/standard.frag");
+		Shader.StandardShader = new Shader(
+				N3D.class.getClassLoader().getResourceAsStream("shaders/standard.vert"),
+				N3D.class.getClassLoader().getResourceAsStream("shaders/standard.frag"));
+
 	}
 	
 	public static void pushMatrix() {

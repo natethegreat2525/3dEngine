@@ -56,4 +56,8 @@ public class Vector3i {
 		return new Vector3i(x*val, y*val, z*val);
 	}
 	
+	public Vector3i clone() {
+		return new Vector3i(x, y, z);
+	}
+	
 }
