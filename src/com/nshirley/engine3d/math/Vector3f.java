@@ -46,6 +46,10 @@ public class Vector3f {
 		return new Vector3f(x + o.x, y + o.y, z + o.z);
 	}
 	
+	public Vector3f sub(Vector3f o) {
+		return new Vector3f(x - o.x, y - o.y, z - o.z);
+	}
+	
 	public Vector3i floor() {
 		return new Vector3i((int) Math.floor(x), (int) Math.floor(y), (int) Math.floor(z));
 	}
