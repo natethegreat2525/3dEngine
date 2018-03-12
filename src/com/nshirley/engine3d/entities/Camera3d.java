@@ -12,6 +12,8 @@ public class Camera3d extends Camera {
 	public Camera3d(float fov, float width, float height, float near, float far) {
 		pos = Matrix4f.identity();
 		rot = Matrix4f.identity();
+		posVec = new Vector3f();
+		rotVec = new Vector3f();
 		prMatrix = Matrix4f.perspective(width, height, near, far, fov);
 	}
 	
