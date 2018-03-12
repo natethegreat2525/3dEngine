@@ -5,7 +5,7 @@ import static org.lwjgl.opengl.GL13.*;
 
 import java.util.ArrayList;
 
-import org.lwjgl.opengl.GLContext;
+import org.lwjgl.opengl.GL;
 
 import com.nshirley.engine3d.graphics.Shader;
 import com.nshirley.engine3d.math.Matrix4f;
@@ -15,7 +15,7 @@ public class N3D {
 	public static ArrayList<Matrix4f> matrixStack;
 
 	public static void init() {
-		GLContext.createFromCurrent();
+		GL.createCapabilities();
 
 		glClearColor(0, 0, 0, 1);
 		glEnable(GL_DEPTH_TEST);

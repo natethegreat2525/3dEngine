@@ -92,7 +92,7 @@ public class Shader {
 	public void setUniformMat4f(String name, Matrix4f matrix) {
 		if (!enabled) enable();
 		FloatBuffer buf = matrix.toFloatBuffer();
-		glUniformMatrix4(getUniform(name), false, buf);
+		glUniformMatrix4fv(getUniform(name), false, buf);
 		BufferUtils.freeFloatBuffer(buf);
 	}
 	
