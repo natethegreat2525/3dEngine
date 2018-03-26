@@ -2,12 +2,15 @@ package com.nshirley.engine3d.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
 import org.lwjgl.opengl.GL30;
 
+import com.nshirley.engine3d.N3D;
 import com.nshirley.engine3d.utils.BufferUtils;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -20,14 +23,22 @@ public class Texture {
 	private int width, height;
 	private int texture;
 	
-	public Texture(String path) {
+	public Texture(InputStream path) {
 		texture = load(path);
 	}
 	
-	private int load(String path) {
+	public Texture(String path) {
+		try {
+			texture = load(new FileInputStream(path));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private int load(InputStream path) {
 		int[] pixels = null;
 		try {
-			BufferedImage image = ImageIO.read(new FileInputStream(path));
+			BufferedImage image = ImageIO.read(path);
 			width = image.getWidth();
 			height = image.getHeight();
 			pixels = new int[width * height];

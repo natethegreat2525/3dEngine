@@ -31,6 +31,14 @@ public class N3D {
 		matrixStack.add(Matrix4f.identity());
 	}
 	
+	public static void disableDepth() {
+		glDisable(GL_DEPTH_TEST);
+	}
+	
+	public static void enableDepth() {
+		glEnable(GL_DEPTH_TEST);
+	}
+	
 	private static void loadShaders() {
 		//Shader.StandardShader = new Shader("shaders/standard.vert", "shaders/standard.frag");
 		Shader.StandardShader = new Shader(

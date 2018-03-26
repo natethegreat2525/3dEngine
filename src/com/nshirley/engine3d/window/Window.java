@@ -13,6 +13,7 @@ import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetInputMode;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowPos;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
@@ -36,6 +37,7 @@ public class Window {
 	private Input input;
 	private Mouse mouse;
 	private MouseButton mouseButton;
+	private MouseWheel mouseWheel;
 	
 	public Window(int w, int h, String title) {
 		glfwInit();
@@ -53,10 +55,12 @@ public class Window {
 		input = new Input();
 		mouse = new Mouse();
 		mouseButton = new MouseButton();
+		mouseWheel = new MouseWheel();
 		
 		glfwSetKeyCallback(window, input);
 		glfwSetCursorPosCallback(window, mouse);
 		glfwSetMouseButtonCallback(window, mouseButton);
+		glfwSetScrollCallback(window, mouseWheel);
 
 		glfwMakeContextCurrent(window);
 		glfwShowWindow(window);
@@ -75,6 +79,7 @@ public class Window {
 	}
 	
 	public void pollEvents() {
+		MouseButton.resetPressRelease();
 		glfwPollEvents();
 	}
 	

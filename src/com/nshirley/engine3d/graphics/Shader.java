@@ -9,6 +9,7 @@ import org.lwjgl.opengl.GL40;
 
 import com.nshirley.engine3d.math.Matrix4f;
 import com.nshirley.engine3d.math.Vector3f;
+import com.nshirley.engine3d.math.Vector4f;
 import com.nshirley.engine3d.utils.BufferUtils;
 import com.nshirley.engine3d.utils.ShaderUtils;
 
@@ -87,6 +88,11 @@ public class Shader {
 	public void setUniform4f(String name, float x, float y, float z, float w) {
 		if (!enabled) enable();
 		glUniform4f(getUniform(name), x, y, z, w);
+	}
+	
+	public void setUniform4f(String name, Vector4f vec) {
+		if (!enabled) enable();
+		glUniform4f(getUniform(name), vec.x, vec.y, vec.z, vec.w);
 	}
 	
 	public void setUniformMat4f(String name, Matrix4f matrix) {

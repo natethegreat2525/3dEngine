@@ -21,6 +21,8 @@ public class StandardRenderStrategy implements RenderStrategy {
 		Shader.StandardShader.setUniform3f("sunLight.vColor", new Vector3f(1, 1, 1));
 		Shader.StandardShader.setUniform3f("sunLight.vDirection", new Vector3f(-.3f, -1f, -.3f));
 		Shader.StandardShader.setUniform1f("sunLight.fAmbientIntensity", .5f);
+		Shader.StandardShader.setUniform4f("colorOverride", e.getColor());
+
 		e.getVertexArray().render();
 		//Debugging error print
 		//N3D.printGlError();
