@@ -7,7 +7,7 @@ import com.nshirley.engine3d.graphics.VertexArray;
 import com.nshirley.engine3d.math.Matrix4f;
 import com.nshirley.engine3d.math.Vector4f;
 
-public class Entity {
+public class Mesh {
 
 	protected Matrix4f mlMatrix;
 	protected boolean mlMatrixDirty;
@@ -19,11 +19,11 @@ public class Entity {
 	
 	protected Vector4f color;
 	
-	public Entity(VertexArray va, Texture tex) {
+	public Mesh(VertexArray va, Texture tex) {
 		this(va, tex, null);
 	}
 	
-	public Entity(VertexArray va, Texture tex, RenderStrategy rs) {
+	public Mesh(VertexArray va, Texture tex, RenderStrategy rs) {
 		if (rs == null) {
 			rs = new StandardRenderStrategy();
 		}

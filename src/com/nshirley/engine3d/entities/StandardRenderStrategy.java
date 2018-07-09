@@ -8,7 +8,7 @@ import com.nshirley.engine3d.math.Vector3f;
 public class StandardRenderStrategy implements RenderStrategy {
 
 	@Override
-	public void render(Entity e) {
+	public void render(Mesh e) {
 		Shader.StandardShader.enable();
 		Texture tex = e.getTexture();
 		if (tex != null) {
